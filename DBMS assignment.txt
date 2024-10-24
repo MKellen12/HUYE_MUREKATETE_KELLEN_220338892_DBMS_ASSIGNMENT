@@ -1,0 +1,372 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 40
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| huye1              |
+| information_schema |
+| kellen1            |
+| ldm                |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| sys                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> select*from ruhande;
+ERROR 1046 (3D000): No database selected
+mysql> use ruhande;
+Database changed
+mysql> select*from ruhande;
+ERROR 1146 (42S02): Table 'ruhande.ruhande' doesn't exist
+mysql> create table ngoma;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> show tables;
++-------------------+
+| Tables_in_ruhande |
++-------------------+
+| ngoma             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select*from ngoma;
++------+----------+--------+--------+----------+-----------+-----------+----------+------------------------+-----------+
+| ID   | F_NAME   | L_NAME | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL     | E_MAIL                 | TEL_NO    |
++------+----------+--------+--------+----------+-----------+-----------+----------+------------------------+-----------+
+|    1 | KAMUKAMA | FRED   | MALE   | EASTERN  | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM | 783548929 |
++------+----------+--------+--------+----------+-----------+-----------+----------+------------------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('002','MUREKATETE','KELLEN','FEMALE','EASTERN','KAYONZA','MUKARANGE','BWIZA','MUREKETETEKELLEN@GMAIL.COM','0791003788');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+------------+--------+--------+----------+-----------+-----------+----------+----------------------------+-----------+
+| ID   | F_NAME     | L_NAME | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL     | E_MAIL                     | TEL_NO    |
++------+------------+--------+--------+----------+-----------+-----------+----------+----------------------------+-----------+
+|    1 | KAMUKAMA   | FRED   | MALE   | EASTERN  | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM     | 783548929 |
+|    2 | MUREKATETE | KELLEN | FEMALE | EASTERN  | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM | 791003788 |
++------+------------+--------+--------+----------+-----------+-----------+----------+----------------------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('003','IHIMBAZWE','GENEVIE','FEMALE','NORTH','GICUMBI','GICUMBI','KAGUGU','IHIMBAZWE GENE12@GMAIL.COM','07856766444');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+------------+---------+--------+----------+-----------+-----------+----------+----------------------------+------------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL     | E_MAIL                     | TEL_NO     |
++------+------------+---------+--------+----------+-----------+-----------+----------+----------------------------+------------+
+|    1 | KAMUKAMA   | FRED    | MALE   | EASTERN  | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM     |  783548929 |
+|    2 | MUREKATETE | KELLEN  | FEMALE | EASTERN  | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM |  791003788 |
+|    3 | IHIMBAZWE  | GENEVIE | FEMALE | NORTH    | GICUMBI   | GICUMBI   | KAGUGU   | IHIMBAZWE GENE12@GMAIL.COM | 2147483647 |
++------+------------+---------+--------+----------+-----------+-----------+----------+----------------------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('004','ASHIMWE','BELYSE','FEMALE','WESTERN','RUBAVU','GISENYI','KIVU','ASHIMWEBELYSE@GMAIL.COM','07888888343');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+------------+---------+--------+----------+-----------+-----------+----------+----------------------------+------------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL     | E_MAIL                     | TEL_NO     |
++------+------------+---------+--------+----------+-----------+-----------+----------+----------------------------+------------+
+|    1 | KAMUKAMA   | FRED    | MALE   | EASTERN  | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM     |  783548929 |
+|    2 | MUREKATETE | KELLEN  | FEMALE | EASTERN  | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM |  791003788 |
+|    3 | IHIMBAZWE  | GENEVIE | FEMALE | NORTH    | GICUMBI   | GICUMBI   | KAGUGU   | IHIMBAZWE GENE12@GMAIL.COM | 2147483647 |
+|    4 | ASHIMWE    | BELYSE  | FEMALE | WESTERN  | RUBAVU    | GISENYI   | KIVU     | ASHIMWEBELYSE@GMAIL.COM    | 2147483647 |
++------+------------+---------+--------+----------+-----------+-----------+----------+----------------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('005','MUSHAIJA','GEOFREY','MALE','KIGALI CITY','GASABO','GASYATA','KIDASHYA','MUSHAIJA GEOFREY@GMAIL.COM','07888885784');
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+------------+---------+--------+------------+-----------+-----------+----------+----------------------------+------------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE   | DISTRICT  | SECTOR    | CELL     | E_MAIL                     | TEL_NO     |
++------+------------+---------+--------+------------+-----------+-----------+----------+----------------------------+------------+
+|    1 | KAMUKAMA   | FRED    | MALE   | EASTERN    | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM     |  783548929 |
+|    2 | MUREKATETE | KELLEN  | FEMALE | EASTERN    | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM |  791003788 |
+|    3 | IHIMBAZWE  | GENEVIE | FEMALE | NORTH      | GICUMBI   | GICUMBI   | KAGUGU   | IHIMBAZWE GENE12@GMAIL.COM | 2147483647 |
+|    4 | ASHIMWE    | BELYSE  | FEMALE | WESTERN    | RUBAVU    | GISENYI   | KIVU     | ASHIMWEBELYSE@GMAIL.COM    | 2147483647 |
+|    5 | MUSHAIJA   | GEOFREY | MALE   | KIGALI CIT | GASABO    | GASYATA   | KIDASHYA | MUSHAIJA GEOFREY@GMAIL.COM | 2147483647 |
++------+------------+---------+--------+------------+-----------+-----------+----------+----------------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('006','NIYIBISHAKA','ONESPHOLE','MALE','SOUTHERN','MUHANGA','BURINGA','RUHABUZO','ONESPHOLENIYIBISHAKA@123GMAIL.COM','07888843563')
+    -> INSERT INTO NGOMA VALUES('006','NIYIBISHAKA','ONESPHOLE','MALE','SOUTHERN','MUHANGA','BURINGA','RUHABUZO','ONESPHOLENIYIBISHAKA@123GMAIL.COM','07888843563');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSERT INTO NGOMA VALUES('006','NIYIBISHAKA','ONESPHOLE','MALE','SOUTHERN','MUHA' at line 2
+mysql> SELECT*FROM NGOMA;
++------+------------+---------+--------+------------+-----------+-----------+----------+----------------------------+------------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE   | DISTRICT  | SECTOR    | CELL     | E_MAIL                     | TEL_NO     |
++------+------------+---------+--------+------------+-----------+-----------+----------+----------------------------+------------+
+|    1 | KAMUKAMA   | FRED    | MALE   | EASTERN    | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM     |  783548929 |
+|    2 | MUREKATETE | KELLEN  | FEMALE | EASTERN    | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM |  791003788 |
+|    3 | IHIMBAZWE  | GENEVIE | FEMALE | NORTH      | GICUMBI   | GICUMBI   | KAGUGU   | IHIMBAZWE GENE12@GMAIL.COM | 2147483647 |
+|    4 | ASHIMWE    | BELYSE  | FEMALE | WESTERN    | RUBAVU    | GISENYI   | KIVU     | ASHIMWEBELYSE@GMAIL.COM    | 2147483647 |
+|    5 | MUSHAIJA   | GEOFREY | MALE   | KIGALI CIT | GASABO    | GASYATA   | KIDASHYA | MUSHAIJA GEOFREY@GMAIL.COM | 2147483647 |
++------+------------+---------+--------+------------+-----------+-----------+----------+----------------------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('006','NIYIBISHAKA','ONESPHOLE','MALE','SOUTHERN','MUHANGA','BURINGA','RUHABUZO','ONESPHOLENIYIBISHAKA@123GMAIL.COM','07888843563');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+-----------+-----------+----------+-----------------------------------+------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT  | SECTOR    | CELL     | E_MAIL                            | TEL_NO     |
++------+-------------+-----------+--------+------------+-----------+-----------+----------+-----------------------------------+------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM            |  783548929 |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM        |  791003788 |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI   | GICUMBI   | KAGUGU   | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU    | GISENYI   | KIVU     | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO    | GASYATA   | KIDASHYA | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA   | BURINGA   | RUHABUZO | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 |
++------+-------------+-----------+--------+------------+-----------+-----------+----------+-----------------------------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('0010','MUKOTANYI','JOHN','MALE','EASTERN','GATSIBO','MUHURA','TABA','MUKOTANYIJOHN@GMAIL.COM','0736655566778');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+-----------+-----------+----------+-----------------------------------+------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT  | SECTOR    | CELL     | E_MAIL                            | TEL_NO     |
++------+-------------+-----------+--------+------------+-----------+-----------+----------+-----------------------------------+------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE | RWIMIYAGA | KAMAGIRI | KAMUKAMAFRED@GMAIL.COM            |  783548929 |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA   | MUKARANGE | BWIZA    | MUREKETETEKELLEN@GMAIL.COM        |  791003788 |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI   | GICUMBI   | KAGUGU   | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU    | GISENYI   | KIVU     | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO    | GASYATA   | KIDASHYA | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA   | BURINGA   | RUHABUZO | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO   | MUHURA    | TABA     | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 |
++------+-------------+-----------+--------+------------+-----------+-----------+----------+-----------------------------------+------------+
+7 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('0032','MUTONI','APOPHIA','FEMALE','KIGALI CITY','NYARUGENGE','KAGUGU','BUNYENYERI','MUTONIPOHIA@GMAIL.COM','07888864566');
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql> INSERT INTO NGOMA VALUES('0011','MUGENZI','HABART','MALE','NORTH','RULINDO','KIBIRIZI','KIBUGUMA','MUGENZIHABART@GMAIL.COM','079998888789');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('0013','NKUBITO','MORRICE','MALE','EASTERN','RWAMAGANA','BWENGE','MUSHA','NKUBITOMORRICE@GMAIL.COM','7468828764778');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | E_MAIL                            | TEL_NO     |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   | KAMUKAMAFRED@GMAIL.COM            |  783548929 |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      | MUREKETETEKELLEN@GMAIL.COM        |  791003788 |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | MUTONIPOHIA@GMAIL.COM             | 2147483647 |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | MUGENZIHABART@GMAIL.COM           | 2147483647 |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | NKUBITOMORRICE@GMAIL.COM          | 2147483647 |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA ADD NATIONALITY CHAR(90);
+Query OK, 10 rows affected (0.06 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | E_MAIL                            | TEL_NO     | NATIONALITY |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   | KAMUKAMAFRED@GMAIL.COM            |  783548929 | NULL        |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      | MUREKETETEKELLEN@GMAIL.COM        |  791003788 | NULL        |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 | NULL        |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 | NULL        |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 | NULL        |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 | NULL        |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 | NULL        |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | MUTONIPOHIA@GMAIL.COM             | 2147483647 | NULL        |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | MUGENZIHABART@GMAIL.COM           | 2147483647 | NULL        |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | NKUBITOMORRICE@GMAIL.COM          | 2147483647 | NULL        |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET NATONALITY='RWANDAN' WHERE ID=1;
+ERROR 1054 (42S22): Unknown column 'NATONALITY' in 'field list'
+mysql> UPDATE NGOMA SET NATIONALITY='RWANDAN' WHERE ID=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | E_MAIL                            | TEL_NO     | NATIONALITY |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   | KAMUKAMAFRED@GMAIL.COM            |  783548929 | RWANDAN     |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      | MUREKETETEKELLEN@GMAIL.COM        |  791003788 | NULL        |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 | NULL        |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 | NULL        |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 | NULL        |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 | NULL        |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 | NULL        |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | MUTONIPOHIA@GMAIL.COM             | 2147483647 | NULL        |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | MUGENZIHABART@GMAIL.COM           | 2147483647 | NULL        |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | NKUBITOMORRICE@GMAIL.COM          | 2147483647 | NULL        |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET NATIONALITY='UGANDAN' WHERE ID=5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | E_MAIL                            | TEL_NO     | NATIONALITY |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   | KAMUKAMAFRED@GMAIL.COM            |  783548929 | RWANDAN     |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      | MUREKETETEKELLEN@GMAIL.COM        |  791003788 | NULL        |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 | NULL        |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 | NULL        |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 | UGANDAN     |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 | NULL        |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 | NULL        |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | MUTONIPOHIA@GMAIL.COM             | 2147483647 | NULL        |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | MUGENZIHABART@GMAIL.COM           | 2147483647 | NULL        |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | NKUBITOMORRICE@GMAIL.COM          | 2147483647 | NULL        |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET NATIONALITY='RWANDAN' WHERE ID=10;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | E_MAIL                            | TEL_NO     | NATIONALITY |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   | KAMUKAMAFRED@GMAIL.COM            |  783548929 | RWANDAN     |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      | MUREKETETEKELLEN@GMAIL.COM        |  791003788 | NULL        |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 | NULL        |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 | NULL        |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 | UGANDAN     |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 | NULL        |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 | RWANDAN     |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | MUTONIPOHIA@GMAIL.COM             | 2147483647 | NULL        |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | MUGENZIHABART@GMAIL.COM           | 2147483647 | NULL        |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | NKUBITOMORRICE@GMAIL.COM          | 2147483647 | NULL        |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET NATINALITY='UGANDAN' WHERE ID=3,11,4;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',11,4' at line 1
+mysql> UPDATE NGOMA SET NATINALITY='UGANDAN' WHERE ID=3;
+ERROR 1054 (42S22): Unknown column 'NATINALITY' in 'field list'
+mysql> UPDATE NGOMA SET NATIONALITY='UGANDAN' WHERE ID=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | E_MAIL                            | TEL_NO     | NATIONALITY |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   | KAMUKAMAFRED@GMAIL.COM            |  783548929 | RWANDAN     |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      | MUREKETETEKELLEN@GMAIL.COM        |  791003788 | NULL        |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | IHIMBAZWE GENE12@GMAIL.COM        | 2147483647 | UGANDAN     |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | ASHIMWEBELYSE@GMAIL.COM           | 2147483647 | NULL        |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | MUSHAIJA GEOFREY@GMAIL.COM        | 2147483647 | UGANDAN     |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | ONESPHOLENIYIBISHAKA@123GMAIL.COM | 2147483647 | NULL        |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | MUKOTANYIJOHN@GMAIL.COM           | 2147483647 | RWANDAN     |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | MUTONIPOHIA@GMAIL.COM             | 2147483647 | NULL        |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | MUGENZIHABART@GMAIL.COM           | 2147483647 | NULL        |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | NKUBITOMORRICE@GMAIL.COM          | 2147483647 | NULL        |
++------+-------------+-----------+--------+------------+------------+-----------+------------+-----------------------------------+------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA DROP E_MAIL;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP E_MAIL' at line 1
+mysql> ALTER NGOMA DROP E_MAIL;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NGOMA DROP E_MAIL' at line 1
+mysql> ALTER TABLE NGOMA DROP E_MAIL;
+Query OK, 10 rows affected (0.05 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT*FROM NGOMA;
++------+-------------+-----------+--------+------------+------------+-----------+------------+------------+-------------+
+| ID   | F_NAME      | L_NAME    | GENDER | PROVINCE   | DISTRICT   | SECTOR    | CELL       | TEL_NO     | NATIONALITY |
++------+-------------+-----------+--------+------------+------------+-----------+------------+------------+-------------+
+|    1 | KAMUKAMA    | FRED      | MALE   | EASTERN    | NYAGATARE  | RWIMIYAGA | KAMAGIRI   |  783548929 | RWANDAN     |
+|    2 | MUREKATETE  | KELLEN    | FEMALE | EASTERN    | KAYONZA    | MUKARANGE | BWIZA      |  791003788 | NULL        |
+|    3 | IHIMBAZWE   | GENEVIE   | FEMALE | NORTH      | GICUMBI    | GICUMBI   | KAGUGU     | 2147483647 | UGANDAN     |
+|    4 | ASHIMWE     | BELYSE    | FEMALE | WESTERN    | RUBAVU     | GISENYI   | KIVU       | 2147483647 | NULL        |
+|    5 | MUSHAIJA    | GEOFREY   | MALE   | KIGALI CIT | GASABO     | GASYATA   | KIDASHYA   | 2147483647 | UGANDAN     |
+|    6 | NIYIBISHAKA | ONESPHOLE | MALE   | SOUTHERN   | MUHANGA    | BURINGA   | RUHABUZO   | 2147483647 | NULL        |
+|   10 | MUKOTANYI   | JOHN      | MALE   | EASTERN    | GATSIBO    | MUHURA    | TABA       | 2147483647 | RWANDAN     |
+|   32 | MUTONI      | APOPHIA   | FEMALE | KIGALI CIT | NYARUGENGE | KAGUGU    | BUNYENYERI | 2147483647 | NULL        |
+|   11 | MUGENZI     | HABART    | MALE   | NORTH      | RULINDO    | KIBIRIZI  | KIBUGUMA   | 2147483647 | NULL        |
+|   13 | NKUBITO     | MORRICE   | MALE   | EASTERN    | RWAMAGANA  | BWENGE    | MUSHA      | 2147483647 | NULL        |
++------+-------------+-----------+--------+------------+------------+-----------+------------+------------+-------------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA'' at line 1
+mysql> UPDATE SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA'' at line 1
+mysql> UPDATE SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA'' at line 1
+mysql> SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' AND CELL='TABA';
++------+-----------+--------+--------+----------+----------+--------+------+------------+-------------+
+| ID   | F_NAME    | L_NAME | GENDER | PROVINCE | DISTRICT | SECTOR | CELL | TEL_NO     | NATIONALITY |
++------+-----------+--------+--------+----------+----------+--------+------+------------+-------------+
+|   10 | MUKOTANYI | JOHN   | MALE   | EASTERN  | GATSIBO  | MUHURA | TABA | 2147483647 | RWANDAN     |
++------+-----------+--------+--------+----------+----------+--------+------+------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT*FROM NGOMA WHERE PROVINCE='EASTERN' OR CELL='TABA';
++------+------------+---------+--------+----------+-----------+-----------+----------+------------+-------------+
+| ID   | F_NAME     | L_NAME  | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL     | TEL_NO     | NATIONALITY |
++------+------------+---------+--------+----------+-----------+-----------+----------+------------+-------------+
+|    1 | KAMUKAMA   | FRED    | MALE   | EASTERN  | NYAGATARE | RWIMIYAGA | KAMAGIRI |  783548929 | RWANDAN     |
+|    2 | MUREKATETE | KELLEN  | FEMALE | EASTERN  | KAYONZA   | MUKARANGE | BWIZA    |  791003788 | NULL        |
+|   10 | MUKOTANYI  | JOHN    | MALE   | EASTERN  | GATSIBO   | MUHURA    | TABA     | 2147483647 | RWANDAN     |
+|   13 | NKUBITO    | MORRICE | MALE   | EASTERN  | RWAMAGANA | BWENGE    | MUSHA    | 2147483647 | NULL        |
++------+------------+---------+--------+----------+-----------+-----------+----------+------------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT ID,F_NAME,GENDER,DISTRICT,TEL_NO FROM NGOMA;
++------+-------------+--------+------------+------------+
+| ID   | F_NAME      | GENDER | DISTRICT   | TEL_NO     |
++------+-------------+--------+------------+------------+
+|    1 | KAMUKAMA    | MALE   | NYAGATARE  |  783548929 |
+|    2 | MUREKATETE  | FEMALE | KAYONZA    |  791003788 |
+|    3 | IHIMBAZWE   | FEMALE | GICUMBI    | 2147483647 |
+|    4 | ASHIMWE     | FEMALE | RUBAVU     | 2147483647 |
+|    5 | MUSHAIJA    | MALE   | GASABO     | 2147483647 |
+|    6 | NIYIBISHAKA | MALE   | MUHANGA    | 2147483647 |
+|   10 | MUKOTANYI   | MALE   | GATSIBO    | 2147483647 |
+|   32 | MUTONI      | FEMALE | NYARUGENGE | 2147483647 |
+|   11 | MUGENZI     | MALE   | RULINDO    | 2147483647 |
+|   13 | NKUBITO     | MALE   | RWAMAGANA  | 2147483647 |
++------+-------------+--------+------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> ^C
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
